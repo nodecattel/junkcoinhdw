@@ -1,4 +1,4 @@
-import { Network, Psbt } from "belcoinjs-lib";
+import { Network, Psbt } from "junkcoinjs-lib";
 
 export type Base58String = string;
 

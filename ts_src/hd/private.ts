@@ -14,13 +14,13 @@ import {
   AddressType,
 } from "./types";
 import { BaseWallet } from "./base";
-import * as tinysecp from "bells-secp256k1";
+import * as tinysecp from "junk-secp256k1";
 import { mnemonicToSeed } from "nintondo-bip39";
-import ECPairFactory, { ECPairInterface } from "belpair";
-import { Network, networks, Psbt, Signer } from "belcoinjs-lib";
+import ECPairFactory, { ECPairInterface } from "junkcoinpair";
+import { Network, networks, Psbt, Signer } from "junkcoinjs-lib";
 import HDKey from "browser-hdkey";
 import { sha256 } from "@noble/hashes/sha256";
-import { crypto as belCrypto } from "belcoinjs-lib";
+import { crypto as jkcCrypto } from "junkcoinjs-lib";
 import { toXOnly } from "../utils/util";
 
 const ECPair = ECPairFactory(tinysecp);
@@ -28,7 +28,7 @@ const ECPair = ECPairFactory(tinysecp);
 const DEFAULT_HD_PATH = "m/44'/0'/0'/0";
 
 function tapTweakHash(pubKey: Buffer, h: Buffer | undefined): Buffer {
-  return belCrypto.taggedHash(
+  return jkcCrypto.taggedHash(
     "TapTweak",
     Buffer.concat(h ? [pubKey, h] : [pubKey])
   );
@@ -168,7 +168,7 @@ class HDPrivateKey extends BaseWallet implements Keyring<SerializedHDKey> {
         !input.disableTweakSigner
       ) {
         const signer = tweakSigner(account, {
-          network: this.network ?? networks.bellcoin,
+          network: this.network ?? networks.junkcoin,
         });
         psbt.signInput(input.index, signer, input.sighashTypes);
       } else {
@@ -194,7 +194,7 @@ class HDPrivateKey extends BaseWallet implements Keyring<SerializedHDKey> {
         !disableTweakSigner
       ) {
         const signer = tweakSigner(account, {
-          network: this.network ?? networks.bellcoin,
+          network: this.network ?? networks.junkcoin,
         });
         psbt.signInput(
           idx,
@@ -241,7 +241,7 @@ class HDPrivateKey extends BaseWallet implements Keyring<SerializedHDKey> {
         !input.disableTweakSigner
       ) {
         const signer = tweakSigner(account, {
-          network: this.network ?? networks.bellcoin,
+          network: this.network ?? networks.junkcoin,
         });
         psbt.signInput(input.index, signer, input.sighashTypes);
       } else {
@@ -313,7 +313,7 @@ class HDPrivateKey extends BaseWallet implements Keyring<SerializedHDKey> {
   async fromMnemonic(opts: FromMnemonicOpts): Promise<HDPrivateKey> {
     const seed = await mnemonicToSeed(
       opts.mnemonic,
-      opts.passphrase ?? "bells"
+      opts.passphrase ?? "junk"
     );
 
     this.fromSeed({

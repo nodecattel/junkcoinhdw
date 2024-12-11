@@ -7,17 +7,17 @@ import {
 import { ZERO_KEY, ZERO_PRIVKEY } from "./common";
 import { bytesToHex, hexToBytes } from "@noble/hashes/utils";
 import { BaseWallet } from "./base";
-import * as tinysecp from "bells-secp256k1";
-import ECPairFactory, { ECPairInterface } from "belpair";
-import { Network, networks, Psbt, Signer } from "belcoinjs-lib";
+import * as tinysecp from "junk-secp256k1";
+import ECPairFactory, { ECPairInterface } from "junkcoinpair";
+import { Network, networks, Psbt, Signer } from "junkcoinjs-lib";
 import { sha256 } from "@noble/hashes/sha256";
-import { crypto as belCrypto } from "belcoinjs-lib";
+import { crypto as jkcCrypto } from "junkcoinjs-lib";
 import { toXOnly } from "../utils/util";
 
 const ECPair = ECPairFactory(tinysecp);
 
 function tapTweakHash(pubKey: Buffer, h: Buffer | undefined): Buffer {
-  return belCrypto.taggedHash(
+  return jkcCrypto.taggedHash(
     "TapTweak",
     Buffer.concat(h ? [pubKey, h] : [pubKey])
   );
@@ -155,7 +155,7 @@ class HDSimpleKey extends BaseWallet implements Keyring<SerializedSimpleKey> {
         !input.disableTweakSigner
       ) {
         const signer = tweakSigner(account, {
-          network: this.network ?? networks.bellcoin,
+          network: this.network ?? networks.junkcoin,
         });
         psbt.signInput(input.index, signer, input.sighashTypes);
       } else {
@@ -186,7 +186,7 @@ class HDSimpleKey extends BaseWallet implements Keyring<SerializedSimpleKey> {
         !disableTweakSigner
       ) {
         const signer = tweakSigner(this.pair!, {
-          network: this.network ?? networks.bellcoin,
+          network: this.network ?? networks.junkcoin,
         });
         psbt.signInput(
           idx,
@@ -232,7 +232,7 @@ class HDSimpleKey extends BaseWallet implements Keyring<SerializedSimpleKey> {
         !input.disableTweakSigner
       ) {
         const signer = tweakSigner(this.pair!, {
-          network: this.network ?? networks.bellcoin,
+          network: this.network ?? networks.junkcoin,
         });
         psbt.signInput(input.index, signer, input.sighashTypes);
       } else {
