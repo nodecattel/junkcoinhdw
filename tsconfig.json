@@ -2,19 +2,16 @@
   "compilerOptions": {
     "target": "ES2020",
     "module": "commonjs",
-    "moduleResolution": "node",
-    "esModuleInterop": true,
-    "allowJs": true,
+    "outDir": "./src",
+    "declaration": true,
+    "rootDir": "./ts_src",
+    "types": ["node"],
+    "allowJs": false,
     "strict": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "outDir": "./dist",
-    "baseUrl": ".",
-    "paths": {
-      "*": ["node_modules/*"]
-    },
-    "types": ["node", "mocha"]
+    "esModuleInterop": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
   },
-  "include": ["src/**/*", "tests/**/*"],
-  "exclude": ["node_modules"]
+  "include": ["ts_src/**/*.ts"],
+  "exclude": ["**/*.spec.ts", "node_modules/**/*"]
 }

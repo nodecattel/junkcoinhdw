@@ -11,6 +11,7 @@ export const HALF_REWARD = Math.floor(BASE_REWARD / 2);
 export const MAX_BLOCK_SERIALIZED_SIZE = 4000000;
 export const MAX_BLOCK_WEIGHT = 4000000;
 export const MAX_BLOCK_BASE_SIZE = 1000000;
+export const MAX_BLOCK_SIZE = 4000000;
 export const MAX_RAW_BLOCK_SIZE = 4000000;
 export const MAX_BLOCK_SIGOPS = 1000000 / 50;
 export const MAX_BLOCK_SIGOPS_COST = 80000;
