@@ -42,8 +42,8 @@
     "bn.js": "5.2.1",
     "browser-hdkey": "0.1.9",
     "junk-secp256k1": "^0.0.1",
-    "junkcoinjs-lib": "^0.0.3",
-    "junkcoinpair": "^0.0.2",
+    "junkcoinjs-lib": "^0.0.5",
+    "junkcoinpair": "^0.0.3",
     "nintondo-bip39": "1.0.0"
   },
   "devDependencies": {
