@@ -105,8 +105,8 @@ export const TESTNET: NetType = {
     coinType: 1,
   },
   addressPrefix: {
-    pubkeyhash: 111,        // From testnet PUBKEY_ADDRESS (makes addresses start with 'm' or 'n')
-    scripthash: 5,          // From testnet SCRIPT_ADDRESS
+    pubkeyhash: 0x6F,        // From testnet PUBKEY_ADDRESS (makes addresses start with 'm' or 'n')
+    scripthash: 0x05,          // From testnet SCRIPT_ADDRESS
     bech32: "tjc1q",        // Testnet SegWit prefix
   },
 };
