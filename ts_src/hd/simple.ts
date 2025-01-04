@@ -7,7 +7,7 @@ import {
 import { ZERO_KEY, ZERO_PRIVKEY } from "./common";
 import { bytesToHex, hexToBytes } from "@noble/hashes/utils";
 import { BaseWallet } from "./base";
-import * as tinysecp from "junk-secp256k1";
+import * as tinysecp from "bells-secp256k1";
 import ECPairFactory, { ECPairInterface } from "junkcoinpair";
 import { Network, networks, Psbt, Signer } from "junkcoinjs-lib";
 import { sha256 } from "@noble/hashes/sha256";
