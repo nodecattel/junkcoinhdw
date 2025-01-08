@@ -1,6 +1,6 @@
 {
   "name": "junkcoinhdw",
-  "version": "0.0.9",
+  "version": "0.1.1",
   "description": "Client-side Bitcoin JavaScript library",
   "main": "./src/index.js",
   "types": "./src/index.d.ts",
@@ -39,7 +39,7 @@
     "@noble/hashes": "1.3.3",
     "junkcoinjs-lib": "0.0.7",
     "bells-secp256k1": "0.1.1",
-    "junkcoinpair": "0.0.9",
+    "junkcoinpair": "0.1.1",
     "nintondo-bip39": "1.0.0",
     "bn.js": "5.2.1",
     "browser-hdkey": "0.1.9"
